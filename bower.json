@@ -1,0 +1,21 @@
+{
+  "name": "jjproject",
+  "description": "Web site for JJ",
+  "main": "app.js",
+  "authors": [
+    "David Cho"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/Hooning/JJProject",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.7",
+    "font-awesome": "~4.7.0"
+  }
+}

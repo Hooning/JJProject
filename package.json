@@ -1,0 +1,29 @@
+{
+  "name": "jjproject",
+  "version": "1.0.0",
+  "description": "Web site for JJ",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hooning/JJProject.git"
+  },
+  "author": "David Cho",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hooning/JJProject/issues"
+  },
+  "homepage": "https://github.com/Hooning/JJProject#readme",
+  "dependencies": {
+    "express": "^4.14.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-jscs": "^4.0.0",
+    "gulp-jshint": "^2.0.4",
+    "jshint": "^2.9.4",
+    "jshint-stylish": "^2.2.1"
+  }
+}
