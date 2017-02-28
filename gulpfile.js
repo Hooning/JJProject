@@ -38,7 +38,7 @@ gulp.task('inject',function () {
 
     };
 
-    return gulp.src('./src/views/*.jade')
+    return gulp.src('./src/views/*.ejs')
 
     .pipe(wiredep(options))
 
