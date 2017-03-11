@@ -46,7 +46,7 @@ pool.connect(function(err, client, done) {
   if(err) {
     return console.error('error fetching client from pool', err);
   }
-  client.query('SELECT $1::int AS number', ['1'], function(err, result) {
+  client.query('SELECT $1::text AS number', ['## pool.connect Ok ##'], function(err, result) {
     //call `done()` to release the client back to the pool 
     done();
  
@@ -54,7 +54,7 @@ pool.connect(function(err, client, done) {
       return console.error('error running query', err);
     }
     console.log(result.rows[0].number);
-    //output: 1 
+    //output: ## pool.connect Ok ## 
   });
 });
  
