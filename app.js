@@ -72,6 +72,8 @@ pool.on('error', function (err, client) {
 
 var musicRouter = require('./src/routes/musicRoutes')(nav, pool);
 
+var boardRouter = require('./src/routes/boardRoutes')(nav, pool);
+
 app.use(express.static('public'));
 app.set('views','./src/views');
 
@@ -83,6 +85,7 @@ app.set('views','./src/views');
 app.set('view engine', '.ejs');
 
 app.use('/Music', musicRouter);
+app.use('/Board', boardRouter);
 
 app.get('/', function(req, res) {
 	res.render('index', {

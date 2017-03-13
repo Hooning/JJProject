@@ -5,6 +5,7 @@ var pg = require('pg');
 
 var router = function(nav, pool){
 
+	//Not in Use ( Using PostgreSQL )
 	var musics = [
 		{
 			title: 'My room',
@@ -43,7 +44,7 @@ var router = function(nav, pool){
 			
 			  // After all data is returned, close connection and return results
 			  query.on('end', function(result) {
-			  	console.log(result.rows);
+			  	//console.log(result.rows);
 			  	res.render('musicListView', {
 			  	  	  title: 'Musics',
 					  nav: nav,
@@ -57,26 +58,32 @@ var router = function(nav, pool){
 	    });		
 
 	musicRouter.route('/:id')
-		.get(function(req, res){
+		.all(function(req,res,next){
 			pool.connect(function(err, client, done) {
 				var musicid = req.params.id;
-				var query = client.query("select * from musics where musicid = $1", [musicid]);
+				var query = client.query('select * from musics where musicid = $1', [musicid]);
 
-				/*
 				query.on('row', function(row, result) {
 					result.addRow(row);
 				});
-				*/
-
+				
 				query.on('end', function(result) {
-					console.log(result.rows);
-		  			res.render('musicView', {
-								title: 'Musics',
-								nav: nav,
-								music: result
-					});
-					console.log('## ['+ result.rows.length + '] rows were received ##');
+					//console.log(result.rows);
+					if(result.rows.length === 0){
+						res.status(404).send('Not Found');
+					}else{
+			  			req.music = result.rows[0];
+			  			next();
+		  				console.log('## musicid : '+ result.rows[0].musicid + ' - exists ##');
+					}
 				});
+			});
+		})
+		.get(function(req, res){
+			res.render('musicView', {
+						title: 'Musics',
+						nav: nav, 
+						music: req.music
 			});
 		});
 
