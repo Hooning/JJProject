@@ -2,19 +2,19 @@ var express = require('express');
 
 var app = express();
 
-var port = process.env.PORT || 5000;
+var port = process.env.PORT || 3000;
 
 var nav = [{
 			Link:'/Music', 
 			Text: 'MUSIC'
 		   },
 		   {
-		 	Link: '/Board',
-		    Text: 'Board'
+		 	Link: '/Gallery',
+		    Text: 'GALLERY'
 		   },
 		   {
-		 	Link: '/About',
-		    Text: 'ABOUT'
+		 	Link: '/Board',
+		    Text: 'Board'
 		   }];
 
 // PostgreSQL Setting Start //
@@ -71,7 +71,7 @@ pool.on('error', function (err, client) {
 // PostgreSQL Setting End //
 
 var musicRouter = require('./src/routes/musicRoutes')(nav, pool);
-
+var galleryRouter = require('./src/routes/galleryRoutes')(nav, pool);
 var boardRouter = require('./src/routes/boardRoutes')(nav, pool);
 
 app.use(express.static('public'));
@@ -86,6 +86,7 @@ app.set('view engine', '.ejs');
 
 app.use('/Music', musicRouter);
 app.use('/Board', boardRouter);
+app.use('/Gallery', galleryRouter);
 
 app.get('/', function(req, res) {
 	res.render('index', {
@@ -96,12 +97,12 @@ app.get('/', function(req, res) {
 			Text: 'MUSIC'
 		 },
 		 {
-		 	Link: '/Board',
-		    Text: 'Board'
+		 	Link: '/Gallery',
+		    Text: 'GALLERY'
 		 },
 		 {
-		 	Link: '/About',
-		    Text: 'ABOUT'
+		 	Link: '/Board',
+		    Text: 'Board'
 		 }]}
 		 );
 });
