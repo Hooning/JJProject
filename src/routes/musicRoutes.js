@@ -60,7 +60,7 @@ var router = function(nav, pool){
 	musicRouter.route('/:id')
 		.all(function(req,res,next){
 			pool.connect(function(err, client, done) {
-				var musicid = req.params.id;
+				var musicid = req.params.ids
 				var query = client.query('select * from musics where musicid = $1', [musicid]);
 
 				query.on('row', function(row, result) {

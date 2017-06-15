@@ -81,7 +81,6 @@ app.set('views','./src/views');
 // app.engine('.hbs', handlebars({extname: '.hbs'}));
 
 //app.set('view engine', '.hbs');
-
 app.set('view engine', '.ejs');
 
 app.use('/Music', musicRouter);
