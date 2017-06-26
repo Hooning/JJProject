@@ -1,17 +1,17 @@
 var express = require('express');
-var boardRouter = express.Router();
+var videoRouter = express.Router();
 
 var pg = require('pg');
 
 var router = function(nav, pool){
-	boardRouter.route('/')
+	videoRouter.route('/')
 		.get(function(req, res){
 			pool.connect(function(err, client, done) {
 			  if(err) {
 			    return console.error('error fetching client from pool', err);
 			  }
 			  
-			  var query = client.query('SELECT postid, subject, text, postedbynm, date(dateposted) AS dateposted FROM FREE_BOARD ORDER BY postid desc');
+			  var query = client.query("SELECT POSTID, SUBJECT, POSTEDBYNM, TO_CHAR(DATEPOSTED, 'YYYY-MM-DD') AS DATEPOSTED FROM FREE_BOARD ORDER BY POSTID DESC");
 			  var rows = [];
 
 			  query.on('row', function(row, result) {
@@ -21,19 +21,19 @@ var router = function(nav, pool){
 			  // After all data is returned, close connection and return results
 			  query.on('end', function(result) {
 			  	//console.log(result.rows);
-			  	res.render('freeBoardListView', {
-			  	  	  title: 'Boards',
+			  	res.render('videoListView', {
+			  	  	  title: 'Videos',
 					  nav: nav,
-					  boards: result.rows
+					  videos: result.rows
 				  });
-			    console.log('## ['+ result.rows.length + '] boards retrieved ##');
+			    console.log('## ['+ result.rows.length + '] videos retrieved ##');
 			  });
 				  
 			});
 
 		});
 
-	return boardRouter;
+	return videoRouter;
 };
 
 module.exports = router;

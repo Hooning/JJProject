@@ -16,13 +16,14 @@ gulp.task('style', function(){
 
 gulp.task('inject',function () {
 
-    var wiredep=require('wiredep').stream;
+    var wiredep = require('wiredep').stream;
 
     var Promise = require('any-promise');
 
     var inject=require('gulp-inject');
 
-    var injectSrc=gulp.src(['./public/css/*.css','./public/js/*.js'],{read:false});
+    var injectSrc=gulp.src(['./public/css/*.css',
+                            './public/js/*.js'],{read:false});
 
     var injectOptions={
         ignorePath:'/public'
@@ -38,7 +39,7 @@ gulp.task('inject',function () {
 
     };
 
-    return gulp.src('./src/views/*.jsx')
+    return gulp.src('./src/views/*.ejs')
 
     .pipe(wiredep(options))
 

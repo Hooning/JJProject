@@ -6,7 +6,7 @@ var pg = require('pg');
 var router = function(nav, pool){
 
 	//Not in Use ( Using PostgreSQL )
-	var musics = [
+	/*var musics = [
 		{
 			title: 'My room',
 			genre: 'Pop Jazz',
@@ -25,7 +25,7 @@ var router = function(nav, pool){
 			composer: 'Stieve Wonder',
 			read: false
 		}
-	];
+	];*/
 
 	musicRouter.route('/')
 		.get(function(req, res){
@@ -60,7 +60,7 @@ var router = function(nav, pool){
 	musicRouter.route('/:id')
 		.all(function(req,res,next){
 			pool.connect(function(err, client, done) {
-				var musicid = req.params.ids
+				var musicid = req.params.ids;
 				var query = client.query('select * from musics where musicid = $1', [musicid]);
 
 				query.on('row', function(row, result) {
