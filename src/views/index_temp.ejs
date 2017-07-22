@@ -3,33 +3,32 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
-		<title>Jazzydus Entertainment</title>
+		<title>All about Jiyeon Jeon</title>
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-		<link href="lib/font-awesom/css/font-awesome.min.css" rel="stylesheet">
-    
-    <!--bower:css-->
-    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.css" />
-    <!--endbower-->
-    <!--bower:js-->
-    <script src="/lib/jquery/dist/jquery.js"></script>
-    <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
-    <!--endbower-->
+		
+        <!--bower:css-->
+        <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.css" />
+        <!--endbower-->
+        <!--bower:js-->
+        <script src="/lib/jquery/dist/jquery.js"></script>
+        <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <!--endbower-->
 
-    <!-- inject:css -->
-    <link rel="stylesheet" href="/css/agency.css">
-    <link rel="stylesheet" href="/css/agency.min.css">
-    <!-- endinject -->
-    <!-- inject:js -->
-    <!-- endinject -->
+        <!-- inject:css -->
+        <link rel="stylesheet" href="/css/agency.css">
+        <link rel="stylesheet" href="/css/agency.min.css">
+        <!-- endinject -->
+        <!-- inject:js -->
+        <!-- endinject -->
     
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 	</head>
 	<body>
+
 <header class="navbar navbar-bright navbar-fixed-top" role="banner">
   <div class="container">
     <div class="navbar-header">
@@ -39,7 +38,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="/" class="navbar-brand">ABOUT</a>
+      <a href="/" class="navbar-brand">About</a>
     </div>
     <nav class="collapse navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
@@ -69,7 +68,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-7">
-        <h1>Music from JJ
+        <h1>Jazzydus Music
           <p class="lead"></p>
         </h1>
       </div>
@@ -111,20 +110,20 @@
           <div class="row">    
             <br>
             <div class="col-md-2 col-sm-3 text-center">
-              <a class="story-title" href="#"><img alt="" src="http://api.randomuser.me/portraits/thumb/men/32.jpg" style="width:100px;height:100px" class="img-circle"></a>
+              Sign In
             </div>
             <div class="col-md-10 col-sm-9">
-              <h3><%=music.title %></h3>
-              <div class="row">
-                <div class="col-xs-9">
-                  <h4><span class="label label-default"><%=music.composer%></span></h4><h4></h4>
-                </div>
-                <div class="col-xs-3"></div>
-              </div>
-              <br><br>
+              Sign Up
+                <form name="signUpForm" 
+                      action="/auth/signUp"
+                      method="post">
+                    <input name="userName" id="userName">
+                    <input name="password" id="password">
+                    <input type="submit" value="Sign Up">
+                
+                </form>
             </div>
           </div>
-          <hr>
           <!--/stories-->
           
           
@@ -139,7 +138,7 @@
    	</div><!--/col-12-->
   </div>
 </div>
-                                                
+
 <footer>
   <div class="container">
     <div class="row">
@@ -158,4 +157,4 @@
 </footer>
 	<!-- script references -->
 	</body>
-</html> 
+</html>

@@ -11,7 +11,7 @@ var router = function(nav, pool){
 			    return console.error('error fetching client from pool', err);
 			  }
 			  
-			  var query = client.query("SELECT POSTID, SUBJECT, POSTEDBYNM, TO_CHAR(DATEPOSTED, 'YYYY-MM-DD') AS DATEPOSTED FROM FREE_BOARD ORDER BY POSTID DESC");
+			  var query = client.query('SELECT POSTID, SUBJECT, POSTEDBYNM, TO_CHAR(DATEPOSTED, YYYY-MM-DD) AS DATEPOSTED FROM FREE_BOARD ORDER BY POSTID DESC');
 			  var rows = [];
 
 			  query.on('row', function(row, result) {
