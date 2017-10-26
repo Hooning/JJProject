@@ -119,8 +119,8 @@ fieldset[disabled] .btn-primary:hover {
 
 .btn-xl {
     color: #fff;
-    background-color: #7b36fe;
-    border-color: #7b36fe;
+    background-color: #5c4675;
+    border-color: #9790e4;
     border-radius: 5px;
     font-size: 13px;
     padding: 12px 24px
@@ -132,8 +132,8 @@ fieldset[disabled] .btn-primary:hover {
 .btn-xl:hover,
 .open .dropdown-toggle.btn-xl {
     color: #fff;
-    background-color: #6403fe;
-    border-color: #6901f6
+    background-color: #68538d;
+    border-color: #9790e4;
 }
 
 .btn-xl.disabled,
@@ -166,7 +166,7 @@ fieldset[disabled] .btn-xl:hover {
 }
 
 .navbar-custom .navbar-brand {
-    color: #8407d3;
+    color:azure;
     font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive
 }
 
@@ -174,13 +174,13 @@ fieldset[disabled] .btn-xl:hover {
 .navbar-custom .navbar-brand:active,
 .navbar-custom .navbar-brand:focus,
 .navbar-custom .navbar-brand:hover {
-    color: #9607ff
+    color: white;
 }
 
 .navbar-custom .nav li a,
 .navbar-custom .navbar-toggle {
     font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #fff;
+    color:#fff
     text-transform: uppercase
 }
 
@@ -189,14 +189,14 @@ fieldset[disabled] .btn-xl:hover {
 }
 
 .navbar-custom .navbar-toggle {
-    background-color: #6c07ac;
-    border-color: #20005c;
+    background-color:#5c4675;
+    border-color: #9790e4;
     font-size: 12px
 }
 
 .navbar-custom .navbar-toggle:focus,
 .navbar-custom .navbar-toggle:hover {
-    background-color: #7903d0
+    background-color:#68538d;
 }
 
 .navbar-custom .nav li a {
@@ -277,9 +277,9 @@ header .intro-text .intro-lead-in {
 
 header .intro-text .intro-heading {
     font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    text-transform: uppercase;
+    text-transform: none;
     font-weight: 700;
-    font-size: 50px;
+    font-size: 40px;
     line-height: 50px;
     margin-bottom: 25px
 }
