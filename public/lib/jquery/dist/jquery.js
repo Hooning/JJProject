@@ -35,6 +35,14 @@
 	} else {
 		factory( global );
 	}
+    
+    $(window).scroll(function() {
+      if ($(document).scrollTop() > 50) {
+        $('nav').addClass('navbar-shrink');
+      } else {
+        $('nav').removeClass('navbar-shrink');
+      }
+    });
 
 // Pass this if window is not defined yet
 } )( typeof window !== "undefined" ? window : this, function( window, noGlobal ) {

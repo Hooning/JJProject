@@ -225,11 +225,11 @@ fieldset[disabled] .btn-xl:hover {
 @media (min-width:768px) {
     .navbar-custom {
         background-color: transparent;
-        padding: 25px 0;
+        padding: 8px 0;
         -webkit-transition: padding .3s;
         -moz-transition: padding .3s;
         transition: padding .3s;
-        border: none
+        border: none;
     }
     .navbar-custom .navbar-brand {
         font-size: 2em;
@@ -238,10 +238,10 @@ fieldset[disabled] .btn-xl:hover {
         transition: all .3s
     }
     .navbar-custom .navbar-nav>.active>a {
-        border-radius: 3px
+        border-radius: 5px
     }
     .navbar-custom.affix {
-        background-color: #1d1522;
+        background-color: #222;
         padding: 10px 0
     }
     .navbar-custom.affix .navbar-brand {
@@ -306,7 +306,7 @@ header .intro-text .intro-heading {
     }
 }
 
-#portfolio .portfolio-item .portfolio-caption p,
+#music .portfolio-item .portfolio-caption p,
 section h3.section-subheading {
     font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-style: italic
@@ -340,19 +340,19 @@ section h3.section-subheading {
     text-transform: none
 }
 
-#portfolio .portfolio-item {
+#music .portfolio-item {
     margin: 0 0 15px;
     right: 0
 }
 
-#portfolio .portfolio-item .portfolio-link {
+#music .portfolio-item .portfolio-link {
     display: block;
     position: relative;
     max-width: 400px;
     margin: 0 auto
 }
 
-#portfolio .portfolio-item .portfolio-link .portfolio-hover {
+#music .portfolio-item .portfolio-link .portfolio-hover {
     background: rgba(254, 209, 54, .9);
     position: absolute;
     width: 100%;
@@ -363,11 +363,11 @@ section h3.section-subheading {
     -moz-transition: all ease .5s
 }
 
-#portfolio .portfolio-item .portfolio-link .portfolio-hover:hover {
+#music .portfolio-item .portfolio-link .portfolio-hover:hover {
     opacity: 1
 }
 
-#portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content {
+#music .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content {
     position: absolute;
     width: 100%;
     height: 20px;
@@ -378,16 +378,16 @@ section h3.section-subheading {
     color: #fff
 }
 
-#portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content i {
+#music .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content i {
     margin-top: -12px
 }
 
-#portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content h3,
-#portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content h4 {
+#music .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content h3,
+#music .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content h4 {
     margin: 0
 }
 
-#portfolio .portfolio-item .portfolio-caption {
+#music .portfolio-item .portfolio-caption {
     max-width: 400px;
     margin: 0 auto;
     background-color: #fff;
@@ -395,12 +395,12 @@ section h3.section-subheading {
     padding: 25px
 }
 
-#portfolio .portfolio-item .portfolio-caption h4 {
+#music .portfolio-item .portfolio-caption h4 {
     text-transform: none;
     margin: 0
 }
 
-#portfolio .portfolio-item .portfolio-caption p {
+#music .portfolio-item .portfolio-caption p {
     font-size: 16px;
     margin: 0
 }
@@ -410,23 +410,23 @@ footer ul.quicklinks {
     font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif
 }
 
-#portfolio * {
+#music * {
     z-index: 2
 }
 
 @media (min-width:767px) {
-    #portfolio .portfolio-item {
+    #music .portfolio-item {
         margin: 0 0 30px
     }
 }
 
-.timeline {
+.introduction {
     list-style: none;
     padding: 0;
     position: relative
 }
 
-.timeline:before {
+.introduction:before {
     top: 0;
     bottom: 0;
     position: absolute;
@@ -437,23 +437,23 @@ footer ul.quicklinks {
     margin-left: -1.5px
 }
 
-.timeline>li {
+.introduction>li {
     margin-bottom: 50px;
     position: relative;
     min-height: 50px
 }
 
-.timeline>li:after,
-.timeline>li:before {
+.introduction>li:after,
+.introduction>li:before {
     content: " ";
     display: table
 }
 
-.timeline>li:after {
+.introduction>li:after {
     clear: both
 }
 
-.timeline>li .timeline-panel {
+.introduction>li .introduction-panel {
     width: 100%;
     float: right;
     padding: 0 20px 0 100px;
@@ -461,21 +461,21 @@ footer ul.quicklinks {
     text-align: left
 }
 
-.timeline>li .timeline-panel:before {
+.introduction>li .introduction-panel:before {
     border-left-width: 0;
     border-right-width: 15px;
     left: -15px;
     right: auto
 }
 
-.timeline>li .timeline-panel:after {
+.introduction>li .introduction-panel:after {
     border-left-width: 0;
     border-right-width: 14px;
     left: -14px;
     right: auto
 }
 
-.timeline>li .timeline-image {
+.introduction>li .introduction-image {
     left: 0;
     margin-left: 0;
     width: 80px;
@@ -489,96 +489,101 @@ footer ul.quicklinks {
     text-align: center
 }
 
-.timeline>li .timeline-image h4 {
+.introduction>li .introduction-image h4 {
     font-size: 10px;
     margin-top: 12px;
     line-height: 14px
 }
 
-.timeline>li.timeline-inverted>.timeline-panel {
+.introduction>li.introduction-inverted>.introduction-panel {
     float: right;
     text-align: left;
     padding: 0 20px 0 100px
 }
 
-.timeline>li.timeline-inverted>.timeline-panel:before {
+.introduction>li.introduction-inverted>.introduction-panel:before {
     border-left-width: 0;
     border-right-width: 15px;
     left: -15px;
     right: auto
 }
 
-.timeline>li.timeline-inverted>.timeline-panel:after {
+.introduction>li.introduction-inverted>.introduction-panel:after {
     border-left-width: 0;
     border-right-width: 14px;
     left: -14px;
     right: auto
 }
 
-.timeline>li:last-child {
+.introduction>li:last-child {
     margin-bottom: 0
 }
 
-.timeline .timeline-heading h4 {
+.introduction .introduction-heading h4 {
     margin-top: 0;
     color: inherit
 }
 
-.timeline .timeline-heading h4.subheading {
+.introduction .introduction-heading h4.subheading {
     text-transform: none
 }
 
-.timeline .timeline-body>p,
-.timeline .timeline-body>ul {
+.introduction .introduction-body>p,
+.introduction .introduction-body>ul {
     margin-bottom: 0
 }
 
 @media (min-width:768px) {
-    .timeline:before {
+    .introduction:before {
         left: 50%
     }
-    .timeline>li {
+    .introduction>li {
         margin-bottom: 100px;
         min-height: 100px
     }
-    .timeline>li .timeline-panel {
+    .introduction>li .introduction-panel {
         width: 41%;
         float: left;
         padding: 0 20px 20px 30px;
         text-align: right
     }
-    .timeline>li .timeline-image {
+    .introduction>li .introduction-image {
         width: 100px;
         height: 100px;
         left: 50%;
         margin-left: -50px
     }
-    .timeline>li .timeline-image h4 {
+    .introduction>li .introduction-image h4 {
         font-size: 13px;
         margin-top: 16px;
         line-height: 18px
     }
-    .timeline>li.timeline-inverted>.timeline-panel {
+    .introduction>li.introduction-inverted>.introduction-panel {
         float: right;
         text-align: left;
         padding: 0 30px 20px 20px
     }
+        #mainNav.navbar-shrink {
+    padding-top: 5;
+    padding-bottom: 5;
+    background-color: #212529;
+    }
 }
 
 @media (min-width:992px) {
-    .timeline>li .timeline-panel,
-    .timeline>li.timeline-inverted>.timeline-panel {
+    .introduction>li .introduction-panel,
+    .introduction>li.introduction-inverted>.introduction-panel {
         padding: 0 20px 20px
     }
-    .timeline>li {
+    .introduction>li {
         min-height: 150px
     }
-    .timeline>li .timeline-image {
+    .introduction>li .introduction-image {
         width: 150px;
         height: 150px;
         margin-left: -75px
     }
-    .timeline>li .timeline-image h4 {
+    .introduction>li .introduction-image h4 {
         font-size: 18px;
         margin-top: 30px;
         line-height: 26px
@@ -586,21 +591,21 @@ footer ul.quicklinks {
 }
 
 @media (min-width:1200px) {
-    .timeline>li {
+    .introduction>li {
         min-height: 170px
     }
-    .timeline>li .timeline-panel {
+    .introduction>li .introduction-panel {
         padding: 0 20px 20px 100px
     }
-    .timeline>li .timeline-image {
+    .introduction>li .introduction-image {
         width: 170px;
         height: 170px;
         margin-left: -85px
     }
-    .timeline>li .timeline-image h4 {
+    .introduction>li .introduction-image h4 {
         margin-top: 40px
     }
-    .timeline>li.timeline-inverted>.timeline-panel {
+    .introduction>li.introduction-inverted>.introduction-panel {
         padding: 0 100px 20px 20px
     }
 }

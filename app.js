@@ -105,16 +105,24 @@ app.get('/', function (req, res) {
     res.render('index', {
         title: 'Hello from render',
         nav: [{
-                Link: '/Music',
+                Link: '#introduction',
+                Text: 'ABOUT'
+		 },
+            {
+                Link: '#music',
                 Text: 'MUSIC'
 		 },
             {
-                Link: '/Gallery',
+                Link: '#gallery',
                 Text: 'GALLERY'
 		 },
             {
-                Link: '/Video',
+                Link: '#video',
                 Text: 'VIDEO'
+		 },
+            {
+                Link: '#contact',
+                Text: 'CONTACT'
 		 }]
     });
 });
