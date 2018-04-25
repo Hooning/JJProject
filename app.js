@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var passport = require('passport');
 var session = require('express-session');
+var cool = require('cool-ascii-faces');
 
 var app = express();
 
@@ -89,10 +90,6 @@ require('./src/config/passport')(app);
 
 app.set('views', './src/views');
 
-// var handlebars = require('express-handlebars');
-// app.engine('.hbs', handlebars({extname: '.hbs'}));
-
-//app.set('view engine', '.hbs');
 app.set('view engine', '.ejs');
 
 app.use('/Music', musicRouter);
@@ -127,8 +124,8 @@ app.get('/', function (req, res) {
     });
 });
 
-app.get('/books', function (req, res) {
-    res.send('Hello Books.');
+app.get('/cool', function (req, res) {
+    res.send(cool());
 });
 
 app.listen(port, function (err) {
