@@ -8,7 +8,7 @@ var mongoose = require('mongoose');
 
 var app = express();
 
-var port = process.env.PORT || 5000;
+var port = process.env.PORT || 3000;
 
 var nav = [{
         Link: '/Music',
@@ -29,10 +29,10 @@ mongoose.connect(process.env.MONGODB_URI);
 // Define Model
 var Menus = require('./models/menus');
 
-var musicRouter = require('./src/routes/musicRoutes')(nav, pool);
-var galleryRouter = require('./src/routes/galleryRoutes')(nav, pool);
-var videoRouter = require('./src/routes/videoRoutes')(nav, pool);
-var authRouter = require('./src/routes/authRoutes')(nav, pool);
+//var musicRouter = require('./src/routes/musicRoutes')(nav, pool);
+//var galleryRouter = require('./src/routes/galleryRoutes')(nav, pool);
+//var videoRouter = require('./src/routes/videoRoutes')(nav, pool);
+//var authRouter = require('./src/routes/authRoutes')(nav, pool);
 
 app.use(express.static('public'));
 app.use(bodyParser.json());
@@ -46,11 +46,10 @@ app.set('views', './src/views');
 
 app.set('view engine', '.ejs');
 
-app.use('/Music', musicRouter);
-app.use('/Gallery', galleryRouter);
-app.use('/Video', videoRouter);
-app.use('/Auth', authRouter);
-
+//app.use('/Music', musicRouter);
+//app.use('/Gallery', galleryRouter);
+//app.use('/Video', videoRouter);
+//app.use('/Auth', authRouter);
 
 app.get('/', function (req, res) {
     res.render('index', {
@@ -85,10 +84,12 @@ app.get('/cool', function (req, res) {
 // GET ALL MENUS
 app.get('/menus', function(req,res){
     Menus.find(function(err, menus){
-        if(err) return res.status(500).send({error: 'database failure'});
+        if(err){
+          return res.status(500).send({error: 'database failure'});  
+        } 
         res.json(menus);
-    })
-})
+    });
+});
 
 app.listen(port, function (err) {
     console.log('running server on port ' + port);
