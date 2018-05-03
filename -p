@@ -1,0 +1,6 @@
+MongoDB shell version v3.6.4
+connecting to: mongodb://ds257589.mlab.com:57589/heroku_0x1km08f
+MongoDB server version: 3.4.14
+WARNING: shell and server versions do not match
+2018-05-03T23:21:38.433+0200 E -        [main] file [gns0524] doesn't exist
+failed to load: gns0524

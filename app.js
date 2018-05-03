@@ -10,22 +10,11 @@ var app = express();
 
 var port = process.env.PORT || 3000;
 
-var nav = [{
-        Link: '/Music',
-        Text: 'MUSIC'
-		   },
-    {
-        Link: '/Gallery',
-        Text: 'GALLERY'
-		   },
-    {
-        Link: '/Video',
-        Text: 'VIDEO'
-		   }];
-
 // Connect to MongoDB Server
-mongoose.connect(process.env.MONGODB_URI);
-
+// console.log(process.env.MONGODB_URI);
+mongoose.connect('mongodb://hoontime:gns0524@ds257589.mlab.com:57589/heroku_0x1km08f');
+//mongoose.Promise = global.Promise;
+//var db = mongoose.connection;
 // Define Model
 var Menus = require('./models/menus');
 
@@ -36,9 +25,9 @@ var Menus = require('./models/menus');
 
 app.use(express.static('public'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
+//app.use(bodyParser.urlencoded());
 app.use(cookieParser());
-app.use(session({secret: 'library'}));
+//app.use(session({secret: 'library'}));
 
 require('./src/config/passport')(app);
 
@@ -46,35 +35,20 @@ app.set('views', './src/views');
 
 app.set('view engine', '.ejs');
 
-//app.use('/Music', musicRouter);
-//app.use('/Gallery', galleryRouter);
-//app.use('/Video', videoRouter);
-//app.use('/Auth', authRouter);
-
 app.get('/', function (req, res) {
-    res.render('index', {
-        title: 'Hello from render',
-        nav: [{
-                Link: '#introduction',
-                Text: 'ABOUT'
-		 },
-            {
-                Link: '#music',
-                Text: 'MUSIC'
-		 },
-            {
-                Link: '#gallery',
-                Text: 'GALLERY'
-		 },
-            {
-                Link: '#video',
-                Text: 'VIDEO'
-		 },
-            {
-                Link: '#contact',
-                Text: 'CONTACT'
-		 }]
+    Menus.find(function(err, menus){
+        if(err){
+          return res.status(500).send({error: 'database failure'});  
+        } 
+        
+        res.render('index', {
+            welcome: 'Welcome To Jazzydus Music!',
+            title: "ALL ABOUT JJ",
+            nav: menus
+        });
+        
     });
+    
 });
 
 app.get('/cool', function (req, res) {
