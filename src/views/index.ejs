@@ -88,500 +88,435 @@
         <div class="container">
             <div class="intro-text">
                 <div class="intro-lead-in"><%=welcome %></div>
-                <div class="intro-heading"><%=title %></div>
+                <div class="intro-heading"><%=whatAbout %></div>
             </div>
         </div>
     </header>
 
-    <!-- Introduction Section -->
-    <section id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Jiyeon Jeon</h2>
-                    <h3 class="section-subheading text-muted">born in Seoul, South Korea.</h3>
+    <% for( var i = 0; i < nav.length; i++){ 
+        
+        var menu = nav[i].menu;
+        if( menu == "About" ){
+            console.log("## Menu : " + menu + " - Loaded");
+            var title = nav[i].title;
+            var desc = nav[i].description;
+            %>
+            <!-- Introduction Section -->
+            <section id="about">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <h2 class="section-heading"><%=title%></h2>
+                            <h3 class="section-subheading text-muted"><%=desc%></h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <ul class="timeline">
+                            <% 
+                                for( var j = 0; j < nav[i].list.length; j++ ){                                    
+                                    var imgUrl = nav[i].list[j].img;
+                                    var bgDate = nav[i].list[j].begin_date;
+                                    var bgYear = bgDate.substring(0,4);
+                                    var bgMonth = bgDate.substring(5,7);
+                                    var edDate = nav[i].list[j].end_date;
+                                    var edYear = edDate.substring(0,4);
+                                    var edMonth = edDate.substring(5,7);
+                                    
+                                    if( edDate == "9999-12-31"){
+                                        edDate = "";
+                                        edYear = "";
+                                        edMonth = "";
+                                    }
+                                    
+                                    var month = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+                                    
+                                    bgMonth = month[parseInt(bgMonth)-1];
+                                    edMonth = month[parseInt(edMonth)-1];
+                                    
+                                    var head = nav[i].list[j].header;
+                                    if( j % 2 == 0){     
+                            %>
+                                    <li>
+                                        <div class="timeline-image">
+                                            <img class="img-circle img-responsive" src="<%=imgUrl %>" alt="">
+                                        </div>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-heading">
+                                                <h4>
+                                                    <%=bgMonth %> <%=bgYear %> ~ 
+                                                    <% if ( edDate != "" ){ %>
+                                                        <%=edMonth %> <%=edYear%>
+                                                    <% } %>
+                                                </h4>
+                                                <h4 class="subheading"><%=head %></h4>
+                                            </div>
+                                            <div class="timeline-body">
+                                                <% for( var k = 0; k < nav[i].list[j].detail.length; k++){ %>
+                                                    <p class="text-muted"><%=nav[i].list[j].detail[k]%></p>
+                                                <% } %>
+                                            </div>
+                                        </div>
+                                    </li>
+                                 <%}else{ %>
+                                    <li class="timeline-inverted">
+                                        <div class="timeline-image">
+                                            <img class="img-circle img-responsive" src="<%=imgUrl %>" alt="">
+                                        </div>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-heading">
+                                                <h4>
+                                                    <%=bgMonth %> <%=bgYear %> ~ 
+                                                    <% if ( edDate != "" ){ %>
+                                                        <%=edMonth %> <%=edYear%>
+                                                    <% } %>
+                                                </h4>
+                                                <h4 class="subheading"><%=head %></h4>
+                                            </div>
+                                            <div class="timeline-body">
+                                                <% for( var k = 0; k < nav[i].list[j].detail.length; k++){ %>
+                                                    <p class="text-muted"><%=nav[i].list[j].detail[k]%></p>
+                                                <% } %>
+                                            </div>
+                                        </div>
+                                    </li>
+                                <% } %>
+                            <% } %>
+                                <li class="timeline-inverted">
+                                    <div class="timeline-image">
+                                        <div class="text-centered">
+                                            <h4>Moved<br/>to<br/>Germany</h4>
+                                        </div>                                
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <ul class="timeline">
-                        <li>
-                            <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="../lib/img/about/first_piano.jpg" alt="">
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4>1998-</h4>
-                                    <h4 class="subheading">Started to play piano</h4>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted">She started to play piano from 6 years old, but she actually decided to be a musician when she was 16 yeaes old.</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="timeline-inverted">
-                            <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="../lib/img/about/dog_level.jpg" alt="">
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4>2001-2005</h4>
-                                    <h4 class="subheading">Kyunghee University</h4>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted">Bachelor of Music, Jazz/Jazz Studies</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="../lib/img/about/music_education.jpg" alt="">
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4>2006-2009</h4>
-                                    <h4 class="subheading">Sookmyung Women's University</h4>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted">Master of Education, Music Teacher Education</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="timeline-inverted">
-                            <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="../lib/img/about/first_lecture.jpg" alt="">
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4>Mar 2009-Aug 2010</h4>
-                                    <h4 class="subheading">University Lecturer</h4>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted">
-                                        Kukje University of Arts<br/>
-                                        Applied Music Dep.<br/>
-                                        - Jazz Piano Private Lesson<br/>
-                                        - Sight Singing and Ear Training
-                                    </p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="../lib/img/about/cuny.jpg" alt="">
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4>2010-2012</h4>
-                                    <h4 class="subheading">City University of New York</h4>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted">Master of Arts, Jazz/Jazz Studies</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="timeline-inverted">
-                            <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="../lib/img/about/olah_teaching.jpg" alt="">
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4>Mar 2012-Feb 2013</h4>
-                                    <h4 class="subheading">University Lecturer</h4>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted">
-                                        <ul>
-                                            <li class="text-muted">
-                                                Mar 2012 - Dec 2012<br/>
-                                                - Kukje University of Arts    
-                                            </li>
-                                            <li class="text-muted">
-                                                Mar 2012 - Dec 2012<br/>
-                                                - Kyunghee University
-                                            </li>
-                                            <li class="text-muted">
-                                                Mar 2012 - Feb 2013<br/>
-                                                - Dong-ah Institue of Media and Arts
-                                            </li>
-                                        </ul>
-                                    </p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="../lib/img/about/kwangshin2.jpg" alt="">
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4>Mar 2013-Feb 2017</h4>
-                                    <h4 class="subheading">Assistant Professor</h4>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted">Kwangshin University</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="timeline-inverted">
-                            <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="../lib/img/about/cutejj.jpg" alt="">
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4>Mar 2017-Aug 2017</h4>
-                                    <h4 class="subheading">Lecturer</h4>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted">School of Performing Arts Seoul</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="../lib/img/about/munhwa.jpg" alt="">
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4>Mar 2017-Sep 2017</h4>
-                                    <h4 class="subheading">Teaching Assistant (TA)</h4>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted">Seoul Foundation for Arts and Culture</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="timeline-inverted">
-                            <div class="timeline-image">
-                                <div class="text-centered">
-                                    <h4>Moved<br/>to<br/>Germany</h4>
-                                </div>                                
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+            </section>
+        <% } else if (true){%>
 
-    <!-- Music Grid Section -->
-    <section id="music" class="bg-light-gray">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Music</h2>
-                    <h3 class="section-subheading text-muted">Any Music with JJ's touch.</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="#musicModal1" class="portfolio-link" data-toggle="modal">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
+            <!-- Music Grid Section -->
+            <section id="music" class="bg-light-gray">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <h2 class="section-heading">Music</h2>
+                            <h3 class="section-subheading text-muted">Any Music with JJ's touch.</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6 portfolio-item">
+                            <a href="#musicModal1" class="portfolio-link" data-toggle="modal">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content">
+                                        <i class="fa fa-plus fa-3x"></i>
+                                    </div>
+                                </div>
+                                <img src="../lib/img/portfolio/performence.jpg" class="img-responsive" alt="">
+                            </a>
+                            <div class="portfolio-caption">
+                                <h4>Performence</h4>
+                                <p class="text-muted">Live experiences from many places</p>
                             </div>
                         </div>
-                        <img src="../lib/img/portfolio/performence.jpg" class="img-responsive" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Performence</h4>
-                        <p class="text-muted">Live experiences from many places</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="#musicModal2" class="portfolio-link" data-toggle="modal">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
+                        <div class="col-md-4 col-sm-6 portfolio-item">
+                            <a href="#musicModal2" class="portfolio-link" data-toggle="modal">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content">
+                                        <i class="fa fa-plus fa-3x"></i>
+                                    </div>
+                                </div>
+                                <img src="../lib/img/portfolio/commercial.jpg" class="img-responsive" alt="">
+                            </a>
+                            <div class="portfolio-caption">
+                                <h4>Commercial Music</h4>
+                                <p class="text-muted">participated musics</p>
                             </div>
                         </div>
-                        <img src="../lib/img/portfolio/commercial.jpg" class="img-responsive" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Commercial Music</h4>
-                        <p class="text-muted">participated musics</p>
+                        <div class="col-md-4 col-sm-6 portfolio-item">
+                            <a href="#musicModal3" class="portfolio-link" data-toggle="modal">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content">
+                                        <i class="fa fa-plus fa-3x"></i>
+                                    </div>
+                                </div>
+                                <img src="../lib/img/portfolio/recordings.jpg" class="img-responsive" alt="">
+                            </a>
+                            <div class="portfolio-caption">
+                                <h4>Recordings</h4>
+                                <p class="text-muted">Music album participated in..</p>
+                            </div>
+                        </div>                
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="#musicModal3" class="portfolio-link" data-toggle="modal">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
+            </section>
+        <% }else if(true){ %>
+            <!-- Gallery Section -->
+            <section id="gallery" class="bg-light-gray">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <h2 class="section-heading">Gallery</h2>
+                            <h3 class="section-subheading text-muted">Every moment of JJ.</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6 portfolio-item">
+                            <a href="#galleryModal1" class="portfolio-link" data-toggle="modal">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content">
+                                        <i class="fa fa-plus fa-3x"></i>
+                                    </div>
+                                </div>
+                                <img src="../lib/img/gallery/ebsspace.jpg" class="img-responsive" alt="">
+                            </a>
+                            <div class="portfolio-caption">
+                                <h4>EBS Space 'Gong gam'</h4>
+                                <p class="text-muted">Performed in Piano Session</p>
                             </div>
                         </div>
-                        <img src="../lib/img/portfolio/recordings.jpg" class="img-responsive" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Recordings</h4>
-                        <p class="text-muted">Music album participated in..</p>
+                        <div class="col-md-4 col-sm-6 portfolio-item">
+                            <a href="#galleryModal2" class="portfolio-link" data-toggle="modal">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content">
+                                        <i class="fa fa-plus fa-3x"></i>
+                                    </div>
+                                </div>
+                                <img src="../lib/img/portfolio/startup-framework.png" class="img-responsive" alt="">
+                            </a>
+                            <div class="portfolio-caption">
+                                <h4>Jeonju International Sori Festival</h4>
+                                <p class="text-muted">Join with Korean traditional Music</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 portfolio-item">
+                            <a href="#galleryModal3" class="portfolio-link" data-toggle="modal">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content">
+                                        <i class="fa fa-plus fa-3x"></i>
+                                    </div>
+                                </div>
+                                <img src="../lib/img/portfolio/treehouse.png" class="img-responsive" alt="">
+                            </a>
+                            <div class="portfolio-caption">
+                                <h4>Korea, China Friendship Performance</h4>
+                                <p class="text-muted">Jazz Bigband tour</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 portfolio-item">
+                            <a href="#galleryModal4" class="portfolio-link" data-toggle="modal">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content">
+                                        <i class="fa fa-plus fa-3x"></i>
+                                    </div>
+                                </div>
+                                <img src="../lib/img/gallery/takatsuki_main.jpg" class="img-responsive" alt="">
+                            </a>
+                            <div class="portfolio-caption">
+                                <h4>Takatsuki Jazz Street</h4>
+                                <p class="text-muted">One of the famous Jazz Festival in Japan</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 portfolio-item">
+                            <a href="#galleryModal5" class="portfolio-link" data-toggle="modal">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content">
+                                        <i class="fa fa-plus fa-3x"></i>
+                                    </div>
+                                </div>
+                                <img src="../lib/img/gallery/rising_main.png" class="img-responsive" alt="">
+                            </a>
+                            <div class="portfolio-caption">
+                                <h4>Rising Star 5</h4>
+                                <p class="text-muted">Piano part</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 portfolio-item">
+                            <a href="#galleryModal6" class="portfolio-link" data-toggle="modal">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content">
+                                        <i class="fa fa-plus fa-3x"></i>
+                                    </div>
+                                </div>
+                                <img src="../lib/img/gallery/wbgo_main.jpg" class="img-responsive" alt="">
+                            </a>
+                            <div class="portfolio-caption">
+                                <h4>WBGO Jazz 88.3 FM</h4>
+                                <p class="text-muted">New York Jazz Radio</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 portfolio-item">
+                            <a href="#galleryModal7" class="portfolio-link" data-toggle="modal">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content">
+                                        <i class="fa fa-plus fa-3x"></i>
+                                    </div>
+                                </div>
+                                <img src="../lib/img/gallery/queens_main.jpg" class="img-responsive" alt="">
+                            </a>
+                            <div class="portfolio-caption">
+                                <h4>Queens College</h4>
+                                <p class="text-muted">Graduation and Award Ceremony</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 portfolio-item">
+                            <a href="#galleryModal8" class="portfolio-link" data-toggle="modal">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content">
+                                        <i class="fa fa-plus fa-3x"></i>
+                                    </div>
+                                </div>
+                                <img src="../lib/img/gallery/sumida_main.jpg" class="img-responsive" alt="">
+                            </a>
+                            <div class="portfolio-caption">
+                                <h4>Sumida Jazz Festival</h4>
+                                <p class="text-muted">Tokyo Jazz Festival</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 portfolio-item">
+                            <a href="#galleryModal9" class="portfolio-link" data-toggle="modal">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content">
+                                        <i class="fa fa-plus fa-3x"></i>
+                                    </div>
+                                </div>
+                                <img src="../lib/img/portfolio/dreams.png" class="img-responsive" alt="">
+                            </a>
+                            <div class="portfolio-caption">
+                                <h4>Jeon Jiyeon Quartet</h4>
+                                <p class="text-muted">Hongdae Jazz Club 'PALM'</p>
+                            </div>
+                        </div>
                     </div>
-                </div>                
-            </div>
-        </div>
-    </section>
+                </div>
+            </section>
+        <% }else if(true){ %>
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="bg-light-gray">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Gallery</h2>
-                    <h3 class="section-subheading text-muted">Every moment of JJ.</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="#galleryModal1" class="portfolio-link" data-toggle="modal">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
+            <!-- Video Section -->
+            <section id="video" class="bg-light-gray">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <h2 class="section-heading">Our Amazing Team</h2>
+                            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="team-member">
+                                <img src="../lib/img/team/1.jpg" class="img-responsive img-circle" alt="">
+                                <h4>Kay Garland</h4>
+                                <p class="text-muted">Lead Designer</p>
+                                <ul class="list-inline social-buttons">
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a>
+                                    </li>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a>
+                                    </li>
+                                    <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                        <img src="../lib/img/gallery/ebsspace.jpg" class="img-responsive" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>EBS Space 'Gong gam'</h4>
-                        <p class="text-muted">Performed in Piano Session</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="#galleryModal2" class="portfolio-link" data-toggle="modal">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
+                        <div class="col-sm-4">
+                            <div class="team-member">
+                                <img src="../lib/img/team/2.jpg" class="img-responsive img-circle" alt="">
+                                <h4>Larry Parker</h4>
+                                <p class="text-muted">Lead Marketer</p>
+                                <ul class="list-inline social-buttons">
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a>
+                                    </li>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a>
+                                    </li>
+                                    <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                        <img src="../lib/img/portfolio/startup-framework.png" class="img-responsive" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Jeonju International Sori Festival</h4>
-                        <p class="text-muted">Join with Korean traditional Music</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="#galleryModal3" class="portfolio-link" data-toggle="modal">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
+                        <div class="col-sm-4">
+                            <div class="team-member">
+                                <img src="../lib/img/team/3.jpg" class="img-responsive img-circle" alt="">
+                                <h4>Diana Pertersen</h4>
+                                <p class="text-muted">Lead Developer</p>
+                                <ul class="list-inline social-buttons">
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a>
+                                    </li>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a>
+                                    </li>
+                                    <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                        <img src="../lib/img/portfolio/treehouse.png" class="img-responsive" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Korea, China Friendship Performance</h4>
-                        <p class="text-muted">Jazz Bigband tour</p>
                     </div>
-                </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="#galleryModal4" class="portfolio-link" data-toggle="modal">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2 text-center">
+                            <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
                         </div>
-                        <img src="../lib/img/gallery/takatsuki_main.jpg" class="img-responsive" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Takatsuki Jazz Street</h4>
-                        <p class="text-muted">One of the famous Jazz Festival in Japan</p>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="#galleryModal5" class="portfolio-link" data-toggle="modal">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
+            </section>
+        <% }else{ %>
+            <!-- Contact Section -->
+            <section id="contact">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <h2 class="section-heading">Contact Us</h2>
+                            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
                         </div>
-                        <img src="../lib/img/gallery/rising_main.png" class="img-responsive" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Rising Star 5</h4>
-                        <p class="text-muted">Piano part</p>
                     </div>
-                </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="#galleryModal6" class="portfolio-link" data-toggle="modal">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="../lib/img/gallery/wbgo_main.jpg" class="img-responsive" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>WBGO Jazz 88.3 FM</h4>
-                        <p class="text-muted">New York Jazz Radio</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="#galleryModal7" class="portfolio-link" data-toggle="modal">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="../lib/img/gallery/queens_main.jpg" class="img-responsive" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Queens College</h4>
-                        <p class="text-muted">Graduation and Award Ceremony</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="#galleryModal8" class="portfolio-link" data-toggle="modal">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="../lib/img/gallery/sumida_main.jpg" class="img-responsive" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Sumida Jazz Festival</h4>
-                        <p class="text-muted">Tokyo Jazz Festival</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="#galleryModal9" class="portfolio-link" data-toggle="modal">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="../lib/img/portfolio/dreams.png" class="img-responsive" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Jeon Jiyeon Quartet</h4>
-                        <p class="text-muted">Hongdae Jazz Club 'PALM'</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Video Section -->
-    <section id="video" class="bg-light-gray">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Our Amazing Team</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="team-member">
-                        <img src="../lib/img/team/1.jpg" class="img-responsive img-circle" alt="">
-                        <h4>Kay Garland</h4>
-                        <p class="text-muted">Lead Designer</p>
-                        <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="team-member">
-                        <img src="../lib/img/team/2.jpg" class="img-responsive img-circle" alt="">
-                        <h4>Larry Parker</h4>
-                        <p class="text-muted">Lead Marketer</p>
-                        <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="team-member">
-                        <img src="../lib/img/team/3.jpg" class="img-responsive img-circle" alt="">
-                        <h4>Diana Pertersen</h4>
-                        <p class="text-muted">Lead Developer</p>
-                        <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Contact Us</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <form name="sentMessage" id="contactForm" novalidate>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Your Name *" id="name" required data-validation-required-message="Please enter your name.">
-                                    <p class="help-block text-danger"></p>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <form name="sentMessage" id="contactForm" novalidate>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Your Name *" id="name" required data-validation-required-message="Please enter your name.">
+                                            <p class="help-block text-danger"></p>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address.">
+                                            <p class="help-block text-danger"></p>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="tel" class="form-control" placeholder="Your Phone *" id="phone" required data-validation-required-message="Please enter your phone number.">
+                                            <p class="help-block text-danger"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <textarea class="form-control" placeholder="Your Message *" id="message" required data-validation-required-message="Please enter a message."></textarea>
+                                            <p class="help-block text-danger"></p>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="col-lg-12 text-center">
+                                        <div id="success"></div>
+                                        <button type="submit" class="btn btn-xl">Send Message</button>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address.">
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                                <div class="form-group">
-                                    <input type="tel" class="form-control" placeholder="Your Phone *" id="phone" required data-validation-required-message="Please enter your phone number.">
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <textarea class="form-control" placeholder="Your Message *" id="message" required data-validation-required-message="Please enter a message."></textarea>
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div class="col-lg-12 text-center">
-                                <div id="success"></div>
-                                <button type="submit" class="btn btn-xl">Send Message</button>
-                            </div>
+                            </form>
                         </div>
-                    </form>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
+            </section>
+        <% } %>
+    <% } %>
 
     <footer>
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; Your Website 2016</span>
+                    <span class="copyright">Copyright &copy; Your Website 2018</span>
                 </div>
                 <div class="col-md-4">
                     <ul class="list-inline social-buttons">
                         <li><a href="#"><i class="fa fa-twitter"></i></a>
                         </li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a>
+                        <li><a href="https://www.facebook.com/jazzydus"><i class="fa fa-facebook"></i></a>
                         </li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                        <li><a href="https://www.linkedin.com/in/jiyeon-jeon-836946152/"><i class="fa fa-linkedin"></i></a>
                         </li>
                     </ul>
                 </div>

@@ -13,8 +13,7 @@ var port = process.env.PORT || 3000;
 // Connect to MongoDB Server
 // console.log(process.env.MONGODB_URI);
 mongoose.connect('mongodb://hoontime:gns0524@ds257589.mlab.com:57589/heroku_0x1km08f');
-//mongoose.Promise = global.Promise;
-//var db = mongoose.connection;
+
 // Define Model
 var Menus = require('./models/menus');
 
@@ -43,7 +42,7 @@ app.get('/', function (req, res) {
         
         res.render('index', {
             welcome: 'Welcome To Jazzydus Music!',
-            title: "ALL ABOUT JJ",
+            whatAbout: 'ALL ABOUT JJ',
             nav: menus
         });
         
