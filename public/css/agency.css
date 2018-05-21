@@ -682,6 +682,7 @@ ul.social-buttons li a:active {
   font-size: 16px;
 }
 .portfolio-modal .modal-content ul.list-inline {
+  text-align: left;
   margin-bottom: 30px;
   margin-top: 0;
 }

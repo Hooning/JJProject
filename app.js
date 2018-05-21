@@ -46,7 +46,7 @@ app.get('/', function (req, res) {
             nav: menus
         });
         
-    });
+    }).sort('menu_order');
     
 });
 

@@ -4,6 +4,7 @@ var Schema = mongoose.Schema;
 // define a schema
 var menusSchema = new Schema({
     menu : String,
+    menu_order : Number,
     link : String,
     title : String,
     description : String,
