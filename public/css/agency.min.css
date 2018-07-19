@@ -38,8 +38,8 @@ h6 {
 
 .text-centered {
     left: 0;
-    position:absolute;
-    text-align:center;
+    position: absolute;
+    text-align: center;
     width: 100%
 }
 
@@ -126,8 +126,8 @@ fieldset[disabled] .btn-primary:hover {
 
 .btn-xl {
     color: #fff;
-    background-color: #5c4675;
-    border-color: #9790e4;
+    background-color: #fed136;
+    border-color: #f7bb30;
     border-radius: 5px;
     font-size: 13px;
     padding: 12px 24px
@@ -139,8 +139,8 @@ fieldset[disabled] .btn-primary:hover {
 .btn-xl:hover,
 .open .dropdown-toggle.btn-xl {
     color: #fff;
-    background-color: #68538d;
-    border-color: #9790e4;
+    background-color: #f4ab00;
+    border-color: #fd9029;
 }
 
 .btn-xl.disabled,
@@ -173,7 +173,7 @@ fieldset[disabled] .btn-xl:hover {
 }
 
 .navbar-custom .navbar-brand {
-    color:azure;
+    color: azure;
     font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive
 }
 
@@ -187,8 +187,7 @@ fieldset[disabled] .btn-xl:hover {
 .navbar-custom .nav li a,
 .navbar-custom .navbar-toggle {
     font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color:#fff
-    text-transform: uppercase
+    color: #fff text-transform: uppercase
 }
 
 .navbar-custom .navbar-collapse {
@@ -196,14 +195,15 @@ fieldset[disabled] .btn-xl:hover {
 }
 
 .navbar-custom .navbar-toggle {
-    background-color:#5c4675;
-    border-color: #9790e4;
+    background-color: #fed136;
+    border-color: #ffd87f;
     font-size: 12px
 }
 
 .navbar-custom .navbar-toggle:focus,
 .navbar-custom .navbar-toggle:hover {
-    background-color:#68538d;
+    background-color: #f4ab00;
+    border-color: #fd9029;
 }
 
 .navbar-custom .nav li a {
@@ -217,14 +217,14 @@ fieldset[disabled] .btn-xl:hover {
     outline: 0
 }
 
-.navbar-custom .navbar-nav>.active>a {
+.navbar-custom .navbar-nav > .active > a {
     border-radius: 0;
     color: #fff;
     background-color: #fed136
 }
 
-.navbar-custom .navbar-nav>.active>a:focus,
-.navbar-custom .navbar-nav>.active>a:hover {
+.navbar-custom .navbar-nav > .active > a:focus,
+.navbar-custom .navbar-nav > .active > a:hover {
     color: #fff;
     background-color: #fec503
 }
@@ -244,7 +244,7 @@ fieldset[disabled] .btn-xl:hover {
         -moz-transition: all .3s;
         transition: all .3s
     }
-    .navbar-custom .navbar-nav>.active>a {
+    .navbar-custom .navbar-nav > .active > a {
         border-radius: 5px
     }
     .navbar-custom.affix {
@@ -348,6 +348,7 @@ section h3.section-subheading {
 }
 
 /*music*/
+
 #music .portfolio-item {
     margin: 0 0 15px;
     right: 0
@@ -414,6 +415,7 @@ section h3.section-subheading {
 }
 
 /*gallery*/
+
 #gallery .portfolio-item {
     margin: 0 0 15px;
     right: 0
@@ -484,15 +486,18 @@ footer ul.quicklinks {
     font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif
 }
 
-#music, #gallery * {
+/*
+#music,
+#gallery * {
     z-index: 2
 }
+*/
 
 @media (min-width:767px) {
     #music .portfolio-item {
         margin: 0 0 30px
     }
-    
+
     #gallery .portfolio-item {
         margin: 0 0 30px
     }
@@ -515,23 +520,23 @@ footer ul.quicklinks {
     margin-left: -1.5px
 }
 
-.introduction>li {
+.introduction > li {
     margin-bottom: 50px;
     position: relative;
     min-height: 50px
 }
 
-.introduction>li:after,
-.introduction>li:before {
+.introduction > li:after,
+.introduction > li:before {
     content: " ";
     display: table
 }
 
-.introduction>li:after {
+.introduction > li:after {
     clear: both
 }
 
-.introduction>li .introduction-panel {
+.introduction > li .introduction-panel {
     width: 100%;
     float: right;
     padding: 0 20px 0 100px;
@@ -539,21 +544,21 @@ footer ul.quicklinks {
     text-align: left
 }
 
-.introduction>li .introduction-panel:before {
+.introduction > li .introduction-panel:before {
     border-left-width: 0;
     border-right-width: 15px;
     left: -15px;
     right: auto
 }
 
-.introduction>li .introduction-panel:after {
+.introduction > li .introduction-panel:after {
     border-left-width: 0;
     border-right-width: 14px;
     left: -14px;
     right: auto
 }
 
-.introduction>li .introduction-image {
+.introduction > li .introduction-image {
     left: 0;
     margin-left: 0;
     width: 80px;
@@ -567,33 +572,33 @@ footer ul.quicklinks {
     text-align: center
 }
 
-.introduction>li .introduction-image h4 {
+.introduction > li .introduction-image h4 {
     font-size: 10px;
     margin-top: 12px;
     line-height: 14px
 }
 
-.introduction>li.introduction-inverted>.introduction-panel {
+.introduction > li.introduction-inverted > .introduction-panel {
     float: right;
     text-align: left;
     padding: 0 20px 0 100px
 }
 
-.introduction>li.introduction-inverted>.introduction-panel:before {
+.introduction > li.introduction-inverted > .introduction-panel:before {
     border-left-width: 0;
     border-right-width: 15px;
     left: -15px;
     right: auto
 }
 
-.introduction>li.introduction-inverted>.introduction-panel:after {
+.introduction > li.introduction-inverted > .introduction-panel:after {
     border-left-width: 0;
     border-right-width: 14px;
     left: -14px;
     right: auto
 }
 
-.introduction>li:last-child {
+.introduction > li:last-child {
     margin-bottom: 0
 }
 
@@ -606,62 +611,62 @@ footer ul.quicklinks {
     text-transform: none
 }
 
-.introduction .introduction-body>p,
-.introduction .introduction-body>ul {
+.introduction .introduction-body > p,
+.introduction .introduction-body > ul {
     margin-bottom: 0
 }
 
 @media (min-width:768px) {
     .introduction:before {
         left: 50%
-    } 
-    .introduction>li {
+    }
+    .introduction > li {
         margin-bottom: 100px;
         min-height: 100px
     }
-    .introduction>li .introduction-panel {
+    .introduction > li .introduction-panel {
         width: 41%;
         float: left;
         padding: 0 20px 20px 30px;
         text-align: right
     }
-    .introduction>li .introduction-image {
+    .introduction > li .introduction-image {
         width: 100px;
         height: 100px;
         left: 50%;
         margin-left: -50px
     }
-    .introduction>li .introduction-image h4 {
+    .introduction > li .introduction-image h4 {
         font-size: 13px;
         margin-top: 16px;
         line-height: 18px
     }
-    .introduction>li.introduction-inverted>.introduction-panel {
+    .introduction > li.introduction-inverted > .introduction-panel {
         float: right;
         text-align: left;
         padding: 0 30px 20px 20px
     }
-        #mainNav.navbar-shrink {
-    padding-top: 5;
-    padding-bottom: 5;
-    background-color: #212529;
+    #mainNav.navbar-shrink {
+        padding-top: 5;
+        padding-bottom: 5;
+        background-color: #212529;
     }
 }
 
 @media (min-width:992px) {
-    .introduction>li .introduction-panel,
-    .introduction>li.introduction-inverted>.introduction-panel {
+    .introduction > li .introduction-panel,
+    .introduction > li.introduction-inverted > .introduction-panel {
         padding: 0 20px 20px
     }
-    .introduction>li {
+    .introduction > li {
         min-height: 150px
     }
-    .introduction>li .introduction-image {
+    .introduction > li .introduction-image {
         width: 150px;
         height: 150px;
         margin-left: -75px
     }
-    .introduction>li .introduction-image h4 {
+    .introduction > li .introduction-image h4 {
         font-size: 18px;
         margin-top: 30px;
         line-height: 26px
@@ -669,21 +674,21 @@ footer ul.quicklinks {
 }
 
 @media (min-width:1200px) {
-    .introduction>li {
+    .introduction > li {
         min-height: 170px
     }
-    .introduction>li .introduction-panel {
+    .introduction > li .introduction-panel {
         padding: 0 20px 20px 100px
     }
-    .introduction>li .introduction-image {
+    .introduction > li .introduction-image {
         width: 170px;
         height: 170px;
         margin-left: -85px
     }
-    .introduction>li .introduction-image h4 {
+    .introduction > li .introduction-image h4 {
         margin-top: 40px
     }
-    .introduction>li.introduction-inverted>.introduction-panel {
+    .introduction > li.introduction-inverted > .introduction-panel {
         padding: 0 100px 20px 20px
     }
 }
