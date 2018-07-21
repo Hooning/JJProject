@@ -1697,6 +1697,11 @@ a.text-primary:hover {
     color: #3c763d
 }
 
+
+.text-success {
+    color: #3c763d
+}
+
 a.text-success:focus,
 a.text-success:hover {
     color: #2b542c
@@ -1711,8 +1716,8 @@ a.text-info:hover {
     color: #245269
 }
 
-.text-warning {
-    color: #8a6d3b
+.text-welcome {
+    color: #f4d442;
 }
 
 a.text-warning:focus,
