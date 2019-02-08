@@ -17,15 +17,15 @@
   },
   "homepage": "https://github.com/Hooning/JJProject#readme",
   "dependencies": {
-    "body-parser": "^1.17.2",
+    "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
     "cool-ascii-faces": "^1.3.4",
     "ejs": "^2.5.6",
-    "express": "^4.15.3",
+    "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
-    "express-session": "^1.15.3",
+    "express-session": "^1.15.6",
     "jade": "^1.11.0",
-    "mongoose": "5.0.16",
+    "mongoose": "^5.4.10",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "pg": "^6.1.2"
@@ -36,8 +36,8 @@
     "gulp-inject": "^4.2.0",
     "gulp-jscs": "^4.0.0",
     "gulp-jshint": "^2.0.4",
-    "gulp-nodemon": "^2.2.1",
-    "jshint": "^2.9.4",
+    "gulp-nodemon": "^2.4.2",
+    "jshint": "^2.10.1",
     "jshint-stylish": "^2.2.1",
     "wiredep": "^4.0.0"
   }
